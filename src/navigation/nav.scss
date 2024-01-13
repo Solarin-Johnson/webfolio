@@ -1,0 +1,134 @@
+:root {
+  --nav-height: 70px;
+}
+
+.nav {
+  &-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--bg-color);
+    width: 90vw;
+    height: var(--nav-height);
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    padding: 7px 5vw 0;
+    align-items: center;
+    align-content: center;
+
+    .name {
+      font-size: clamp(14px, 3.5vw, 22px);
+      font-weight: 500;
+      pointer-events: none;
+      padding-bottom: 7px;
+    }
+  }
+  &-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    column-gap: 4vw;
+
+    &-fixed {
+      position: fixed;
+      z-index: 0;
+      left: 0;
+      display: grid;
+      grid-template-columns: repeat(5, auto);
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+      width: 100vw;
+      height: 30px;
+      padding-bottom: 10px;
+      top: calc(var(--nav-height) - 35px);
+      transition: 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+      overflow: hidden;
+      background-color: var(--bg-color);
+
+      &.show-menu {
+        top: var(--nav-height);
+        &::after {
+          content: "";
+          width: 100vw;
+          height: 0;
+          background-color: var(--gold);
+          position: absolute;
+          animation: menuEffect 0.65s linear forwards;
+        }
+      }
+      &.hide-menu {
+        transition: 1.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+        &::before {
+          content: "";
+          width: 100vw;
+          height: 40px;
+          background-color: var(--gold);
+          position: absolute;
+          z-index: 1;
+          animation: menuEffect 0.65s linear reverse;
+        }
+      }
+    }
+  }
+}
+
+@keyframes menuEffect {
+  0% {
+    top: 0;
+    height: 40px;
+  }
+  50% {
+    top: 0;
+    height: 40px;
+  }
+  100% {
+    top: 40px;
+    height: 0px;
+  }
+}
+
+.menu {
+  &-items {
+    font-size: clamp(12px, 3vw, 18px);
+    cursor: pointer;
+    padding-bottom: 6.5px;
+    position: relative;
+
+    &::after {
+      transition: 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      content: "";
+      width: 0;
+      height: 3px;
+      position: absolute;
+      bottom: -1px;
+      right: 0;
+      left: inherit;
+      background-color: #fff;
+      border-radius: 10rem;
+    }
+    &:hover::after {
+      width: 100%;
+      right: inherit;
+      left: 0;
+    }
+  }
+  &-active {
+    color: var(--gold);
+    &::after {
+      background-color: var(--gold);
+    }
+  }
+  &-bar {
+    display: grid;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --nav-height: 65px;
+  }
+}

@@ -1,0 +1,11 @@
+:root {
+  --bg-color: #1b1a17;
+  --text-color: #f0e3ca;
+  --gold: #ff8303;
+  --brown: #a35709;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
