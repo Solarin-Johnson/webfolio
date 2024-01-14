@@ -20,6 +20,9 @@ export default function Home() {
           cover a diverse range of technologies, ensuring end-to-end solutions
           in web development.
         </div>
+        <div className="home-content-button">
+          
+        </div>
       </div>
       <div className="home-image">
         <img src={process.env.PUBLIC_URL + "/image.png"} alt="" />

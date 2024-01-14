@@ -8,6 +8,9 @@ export default function About() {
   });
   return (
     <div className={`about-container ${inView ? "inView" : ""}`} ref={ref}>
+      <div className="about-head">
+        About <span>Me</span>
+      </div>
       <div className="about-image">
         <img src={process.env.PUBLIC_URL + "/image.png"} alt="" />
       </div>
