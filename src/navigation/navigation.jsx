@@ -72,7 +72,9 @@ export const MenuItems = ({ name, active, i, setActive }) => {
 export const MenuBar = ({ setMenu, menu }) => {
   return (
     <div className="menu-bar" onClick={() => setMenu(!menu)}>
-      <span>{menu ? "close" : "menu"}</span>
+      <span className="material-symbols-outlined">
+        {menu ? "close" : "menu"}
+      </span>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 :root {
-  --nav-height: 70px;
+  --nav-height: 80px;
 }
 
 .nav {
@@ -156,6 +156,17 @@
     display: grid;
     cursor: pointer;
     user-select: none;
+    -webkit-tap-highlight-color: #ffffff00;
+    span {
+      transition: 0.5s ease;
+      font-size: 28px;
+      &:active {
+        transform: rotate(10deg);
+      }
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
   }
 }
 

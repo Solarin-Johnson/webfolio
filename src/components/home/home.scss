@@ -19,7 +19,7 @@
 
 .home {
   &-container {
-    padding: 85px 5vw 20px;
+    padding: calc(var(--nav-height) + 10px) 5vw 20px;
   }
   &-content {
     max-width: 650px;
@@ -187,6 +187,6 @@
     --text-align: center;
     --overlay-display: none;
     --overlay-index: -1;
-    --image-opacity: 0.25;
+    --image-opacity: 0.15;
   }
 }
