@@ -6,7 +6,6 @@ export default function Home() {
     threshold: 0.45,
     triggerOnce: false,
   });
-  console.log(inView);
   return (
     <div
       className={`home-container ${inView ? "inView" : "outView"}`}

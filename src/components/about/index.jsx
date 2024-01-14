@@ -1,19 +1,25 @@
 import "./about.scss";
+import { useInView } from "react-intersection-observer";
+
 export default function About() {
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: false,
+  });
   return (
-    <div className="about-container">
+    <div className={`about-container ${inView ? "inView" : ""}`} ref={ref}>
       <div className="about-image">
-        {/* <img src={process.env.PUBLIC_URL + "/image.png"} alt="" /> */}
+        <img src={process.env.PUBLIC_URL + "/image.png"} alt="" />
       </div>
+      <div className="about-title">Software Engineer!</div>
       <div className="about-content">
-        {/* <div className="about-content-name">Hi, I'm Solarin Daniel</div>
-        <div className="about-content-label">Fullstack Web Developer</div> */}
-        <div className="about-content-text">
-          {/* I'm a full-stack web developer, adept at blending frontend and backend
-          technologies to craft seamless and engaging web experiences. My skills
-          cover a diverse range of technologies, ensuring end-to-end solutions
-          in web development. */}
-        </div>
+        Hi, I'm Danial. A passionate software developer with expertise in both
+        full-stack development and data science. Skilled in JavaScript (Node.js,
+        React) for crafting dynamic web applications and proficient in Python
+        (NumPy, Pandas) for analyzing complex datasets. Committed to clean
+        coding practices and staying abreast of industry trends, I thrive on
+        turning intricate challenges into streamlined solutions.
+        <span> Let's build the future of technology together!</span>
       </div>
     </div>
   );

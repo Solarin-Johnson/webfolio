@@ -1,0 +1,11 @@
+@mixin slideXAnimation($delay) {
+  content: "";
+  animation: var(--animation-name) 0.8s linear $delay forwards;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  right: 0;
+  top: 0;
+  z-index: 0;
+}

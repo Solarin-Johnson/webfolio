@@ -1,3 +1,5 @@
+@import "../../layout/_mixins";
+
 :root {
   --text-align: left;
   --overlay-display: grid;
@@ -5,21 +7,11 @@
   --image-opacity: 1;
 }
 
-@mixin slideXAnimation($delay) {
-  content: "";
-  animation: var(--animation-name) 0.8s linear $delay forwards;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg-color);
-  right: 0;
-  top: 0;
-  z-index: 0;
-}
-
 .home {
   &-container {
     padding: calc(var(--nav-height) + 10px) 5vw;
+    animation: move-alt alternate forwards;
+    animation-timeline: scroll(block nearest);
 
     &.inView {
       --animation-name: slideX;
@@ -27,11 +19,9 @@
     }
   }
   &-content {
-    animation: move-alt alternate forwards;
-    animation-timeline: scroll(block nearest);
     max-width: 650px;
     display: grid;
-    // height: calc(100vh - 105px);
+    height: calc(100vh - 150px);
     min-height: 550px;
     align-items: center;
     align-content: center;
@@ -124,7 +114,7 @@
 }
 
 .overlay {
-  animation: move alternate forwards;
+  animation: overlay alternate forwards;
   animation-timeline: scroll(block nearest);
   position: fixed;
   z-index: var(--overlay-index);
@@ -187,6 +177,37 @@
 }
 
 @keyframes move {
+  10% {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 0;
+    transform: scale(5) translateY(calc(var(--nav-height) * 1.1));
+  }
+}
+
+@keyframes overlay {
+  10% {
+    opacity: 0;
+  }
+  40% {
+    transform: scale(5) translateY(calc(var(--nav-height) * 1.1));
+  }
+  41% {
+    transform: scale(0);
+    z-index: -1 !important;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes move {
+  0% {
+    z-index: -1 !important;
+  }
   80% {
     opacity: 0;
   }
@@ -197,8 +218,15 @@
 }
 
 @keyframes move-alt {
-  50% {
-    // opacity: 0;
+  0% {
+    background: linear-gradient(to top, #1b1a17, #1b1a1740, transparent);
+    // background: #1b1a17e6;
+  }
+  1% {
+    background: linear-gradient(to top, #1b1a17, #1b1a1785, transparent);
+  }
+  100% {
+    background: linear-gradient(to top, #1b1a17, #1b1a1790, transparent);
   }
 }
 
