@@ -1,14 +1,113 @@
+:root {
+  --text-align: left;
+  --overlay-display: grid;
+  --overlay-index: 100;
+  --image-opacity: 1;
+}
+
+@mixin slideXAnimation($delay) {
+  content: "";
+  animation: slideX 0.8s linear $delay forwards;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
 .home {
   &-container {
-    padding-top: 75px;
+    padding: 85px 5vw 20px;
   }
   &-content {
+    max-width: 650px;
+    display: grid;
+    // height: calc(100vh - 105px);
+    min-height: 550px;
+    align-items: center;
+    align-content: center;
+    justify-items: var(--text-align);
+    // display: none;
+    &-name {
+      font-size: clamp(26px, 6vw, 52px);
+      font-weight: 600;
+      position: relative;
+
+      &::after {
+        @include slideXAnimation(0.1s);
+      }
+    }
+
+    &-label {
+      display: grid;
+      padding-top: 10px;
+      font-family: sans-serif;
+      font-size: clamp(18px, 2.5vw, 26px);
+      color: var(--bg-color);
+      -webkit-text-stroke: 0.7px var(--gold);
+      text-stroke: 0.7px var(--gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      position: relative;
+      opacity: 0;
+      animation: blinks 1s linear 0.5s forwards;
+
+      &::after {
+        content: "Fullstack Web Developer";
+        color: var(--gold);
+        position: absolute;
+        width: 0%;
+        height: 80%;
+        justify-self: start;
+        padding-top: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: write 6s linear 5s infinite forwards;
+      }
+
+      &::before {
+        content: "";
+        margin-top: 9px;
+        position: absolute;
+        z-index: 1;
+        border-right: 1px solid var(--gold);
+        height: 70%;
+        width: 0%;
+        padding-right: 1px;
+        animation: write 6s linear 5s infinite forwards;
+      }
+    }
+    &-text {
+      position: relative;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 300;
+      padding-top: 20px;
+      line-height: 1.4;
+      text-align: var(--text-align);
+
+      &::after {
+        @include slideXAnimation(0.7s);
+      }
+    }
   }
   &-image {
     position: fixed;
     z-index: -1;
-    right: clamp(5vw, 200px, 10vw);
-    margin-top: 5vw;
+    opacity: var(--image-opacity);
+    right: clamp(5vw, 200px, 15vw);
+    top: calc(77px + 5vw);
+
+    &::after {
+      content: "";
+      animation: slideX 0.6s 1.2s linear forwards;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+      right: 0;
+    }
     img {
       width: clamp(250px, 60vw, 450px);
       height: clamp(200px, 70vw, 500px);
@@ -18,41 +117,76 @@
       border-bottom-right-radius: 100%;
       border-bottom-left-radius: 100%;
     }
-    .overlay {
-      position: absolute;
-      background: radial-gradient(
-        circle at 40% 15%,
-        #1b1a1710,
-        #1b1a1742,
-        #1b1a17ad,
-        var(--bg-color),
-        var(--bg-color)
-      );
+  }
+}
 
-      &::after {
-        transition: 1s ease all;
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background: radial-gradient(
-          circle at 40% 15%,
-          #1b1a1750,
-          #1b1a17a0,
-          #1b1a17b9,
-          var(--bg-color),
-          var(--bg-color)
-        );
-      }
+.overlay {
+  position: fixed;
+  z-index: var(--overlay-index);
+  width: clamp(250px, 60vw, 450px);
+  height: clamp(200px, 70vw, 500px);
+  right: clamp(5vw, 200px, 10vw);
+  top: calc(77px + 5vw);
+  display: var(--overlay-display);
+  background: radial-gradient(
+    circle at 40% 15%,
+    #1b1a1710,
+    #1b1a1742,
+    #1b1a17ad,
+    var(--bg-color),
+    var(--bg-color)
+  );
+  &::after {
+    transition: 1s ease all;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: radial-gradient(
+      circle at 40% 15%,
+      #1b1a1750,
+      #1b1a17a0,
+      #1b1a17b9,
+      var(--bg-color),
+      var(--bg-color)
+    );
+  }
 
-      &:hover:after {
-        opacity: 0;
-      }
+  &:hover::after {
+    opacity: 0;
+  }
+}
 
-      width: 100%;
-      height: 100%;
-      &:hover {
-      }
-    }
+@keyframes write {
+  0% {
+    width: 0;
+  }
+  60% {
+    width: 102%;
+  }
+  75% {
+    width: 0;
+  }
+}
+
+@keyframes slideX {
+  to {
+    width: 0 !important;
+    visibility: hidden;
+  }
+}
+
+@keyframes blinks {
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --text-align: center;
+    --overlay-display: none;
+    --overlay-index: -1;
+    --image-opacity: 0.25;
   }
 }

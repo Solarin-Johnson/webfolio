@@ -20,7 +20,7 @@ export default function Navigation() {
   return (
     <>
       <div className="nav-container">
-        <div className="name">Solarin.</div>
+        <div className="name">Daniel.</div>
         {browserWidth > 600 ? (
           <div className="nav-menu">
             {menuItems.map((item, i) => {
