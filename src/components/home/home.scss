@@ -35,6 +35,12 @@
       grid-template-columns: repeat(2, auto);
       justify-content: var(--text-align);
       column-gap: 30px;
+      position: relative;
+
+      &::after {
+        @include slideXAnimation(0.9s);
+        z-index: 100 !important;
+      }
 
       div {
         display: grid;
@@ -104,6 +110,12 @@
       display: grid;
       grid-template-columns: repeat(3, auto);
       column-gap: 20px;
+      position: relative;
+
+      &::after {
+        @include slideXAnimation(1.5s);
+        z-index: 100 !important;
+      }
 
       div {
         padding: 7px;
@@ -139,7 +151,6 @@
           width: 0;
           height: 100%;
           background-color: var(--gold);
-          
         }
 
         &:hover > span {
