@@ -27,6 +27,129 @@
     align-content: center;
     justify-items: var(--text-align);
     // display: none;
+    &-button {
+      margin-top: 30px;
+      height: 43px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      justify-content: var(--text-align);
+      column-gap: 30px;
+
+      div {
+        display: grid;
+        align-content: center;
+        padding: 0 24px;
+        border-radius: 6px;
+        border: 2px solid var(--gold);
+        position: relative;
+        cursor: pointer;
+        &::before {
+          align-self: center;
+          justify-self: start;
+          z-index: 2;
+          color: var(--bg-color);
+          transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          font-weight: 500;
+        }
+        &::after {
+          transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          content: "";
+          position: absolute;
+          z-index: 0;
+          width: 100%;
+          height: 100%;
+          background-color: var(--gold);
+        }
+      }
+
+      :first-child {
+        &::before {
+          content: "Hire Me";
+          width: 100%;
+        }
+        &::after {
+          left: 0;
+          background-color: var(--gold);
+        }
+        &:hover::before {
+          color: #ffffff;
+        }
+        &:hover::after {
+          right: 0;
+          width: 0%;
+        }
+      }
+      :last-child {
+        &::before {
+          content: "Let's Talk";
+          width: 100%;
+          color: #ffffff;
+        }
+        &::after {
+          left: 0;
+          width: 0;
+        }
+        &:hover::before {
+          color: var(--bg-color);
+        }
+        &:hover::after {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+    &-social {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 20px;
+
+      div {
+        padding: 7px;
+        border: 2px solid var(--gold);
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: clamp(20px, 3vw, 26px);
+        height: clamp(20px, 3vw, 26px);
+        position: relative;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+
+        i {
+          margin-top: 1px;
+          font-size: clamp(20px, 3vw, 26px);
+          color: var(--bg-color);
+          position: absolute;
+          z-index: 2;
+          color: var(--gold);
+          align-self: center;
+          justify-self: center;
+          transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        }
+
+        span {
+          transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          position: absolute;
+          z-index: 1;
+          width: 0;
+          height: 100%;
+          background-color: var(--gold);
+          
+        }
+
+        &:hover > span {
+          width: 100%;
+        }
+        &:hover > i {
+          color: var(--bg-color);
+        }
+      }
+    }
     &-name {
       font-size: clamp(26px, 6vw, 52px);
       font-weight: 600;

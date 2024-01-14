@@ -21,7 +21,22 @@ export default function Home() {
           in web development.
         </div>
         <div className="home-content-button">
-          
+          <div></div>
+          <div></div>
+        </div>
+        <div className="home-content-social">
+          <div>
+            <span></span>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+          <div>
+            <span></span>
+            <i class="fa-brands fa-github"></i>
+          </div>
+          <div>
+            <span></span>
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
         </div>
       </div>
       <div className="home-image">
