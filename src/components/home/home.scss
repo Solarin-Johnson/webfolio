@@ -22,9 +22,12 @@
     padding: calc(var(--nav-height) + 10px) 5vw 20px;
   }
   &-content {
+    animation: move-alt alternate forwards;
+    animation-timeline: scroll(block nearest);
     max-width: 650px;
     display: grid;
     // height: calc(100vh - 105px);
+    padding-bottom: 400vh;
     min-height: 550px;
     align-items: center;
     align-content: center;
@@ -64,7 +67,7 @@
         padding-top: 10px;
         white-space: nowrap;
         overflow: hidden;
-        animation: write 6s linear 5s infinite forwards;
+        animation: write 6s linear 2s infinite forwards;
       }
 
       &::before {
@@ -76,7 +79,7 @@
         height: 70%;
         width: 0%;
         padding-right: 1px;
-        animation: write 6s linear 5s infinite forwards;
+        animation: write 6s linear 2s infinite forwards;
       }
     }
     &-text {
@@ -98,6 +101,8 @@
     opacity: var(--image-opacity);
     right: clamp(5vw, 200px, 15vw);
     top: calc(77px + 5vw);
+    animation: move alternate forwards;
+    animation-timeline: scroll(block nearest);
 
     &::after {
       content: "";
@@ -121,9 +126,11 @@
 }
 
 .overlay {
+  animation: move alternate forwards;
+  animation-timeline: scroll(block nearest);
   position: fixed;
   z-index: var(--overlay-index);
-  width: clamp(250px, 60vw, 450px);
+  width: clamp(280px, 65vw, 500px);
   height: clamp(200px, 70vw, 500px);
   right: clamp(5vw, 200px, 10vw);
   top: calc(77px + 5vw);
@@ -182,9 +189,29 @@
   }
 }
 
+@keyframes move {
+  30% {
+    opacity: 0;
+  }
+  to {
+    transform: scale(20) translateY(calc(85px * 15));
+  }
+}
+
+@keyframes move-alt {
+  to {
+    transform: scale(0.4);
+  }
+}
+
 @media screen and (max-width: 600px) {
   :root {
     --text-align: center;
+  }
+}
+
+@media screen and (max-width: 1320px) {
+  :root {
     --overlay-display: none;
     --overlay-index: -1;
     --image-opacity: 0.15;
