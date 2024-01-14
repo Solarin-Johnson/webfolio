@@ -23,6 +23,7 @@
     display: grid;
     height: calc(100vh - 150px);
     min-height: 550px;
+    max-height: 650px;
     align-items: center;
     align-content: center;
     justify-items: var(--text-align);

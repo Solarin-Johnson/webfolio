@@ -1,0 +1,135 @@
+@import "../../layout/_mixins";
+
+:root {
+  --windows-rows: auto;
+  --windows-columns: repeat(2, 450px);
+}
+
+.experience {
+  &-container {
+    display: grid;
+    min-height: 650px;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 5vw 30px;
+    // text-align: var(--text-align);
+
+    &.inView {
+      --animation-name: slideX;
+    }
+  }
+
+  &-head {
+    padding-bottom: 40px;
+    font-size: clamp(24px, 5vw, 36px);
+    color: #ffffff;
+    font-weight: 600;
+    position: relative;
+    justify-self: center;
+    > span {
+      color: var(--gold);
+    }
+
+    &::after {
+      @include slideXAnimation(0.4s);
+    }
+  }
+  &-window {
+    &-container {
+      display: grid;
+      column-gap: 40px;
+      row-gap: 70px;
+      grid-template-rows: var(--windows-rows);
+      grid-template-columns: var(--windows-columns);
+    }
+    height: 500px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: 10px;
+    position: relative;
+
+    &:first-child {
+      &::after {
+        @include slideXAnimation(0.2s);
+      }
+    }
+    &:last-child {
+      &::after {
+        @include slideXAnimation(0.9s);
+      }
+    }
+
+    &-head {
+      font-size: clamp(20px, 2vw, 22px);
+      padding-left: 35px;
+    }
+
+    &-content {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      column-gap: 15px;
+      //   background-color: var(--brown);
+    }
+    &-bar {
+      background-color: var(--gold);
+      width: 2px;
+      display: grid;
+      justify-self: center;
+      grid-template-rows: repeat(3, 1fr);
+      border-radius: 10rem;
+      row-gap: 20px;
+
+      span {
+        background-color: var(--gold);
+        width: 15px;
+        height: 15px;
+        margin-left: -6.5px;
+        border-radius: 50%;
+      }
+    }
+    &-body {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      row-gap: 20px;
+    }
+  }
+  &-tab {
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    display: grid;
+    align-content: space-between;
+    font-weight: 300;
+    padding: 10px;
+
+    &-date {
+      color: var(--gold);
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      justify-content: start;
+      align-items: center;
+      align-content: center;
+      font-size: clamp(14px, 1vw, 16px);
+      i {
+        font-size: clamp(12px, 1vw, 14px);
+        padding-right: 10px;
+      }
+    }
+    &-title {
+      font-weight: 400;
+      font-size: 18px;
+    }
+    &-body {
+      font-size: clamp(12px, 2.7vw, 14px);
+      line-height: 1.4;
+      opacity: 0.85;
+    }
+    // height: 200px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --windows-columns: clamp(0px, 88vw, 500px);
+    --windows-rows: repeat(2, auto);
+  }
+}
