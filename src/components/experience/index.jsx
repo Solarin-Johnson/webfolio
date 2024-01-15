@@ -9,33 +9,36 @@ export default function Experience() {
 
   const experience = [
     {
-      date: ["2017", "2018"],
-      head: "Master Degree - University",
-      body: "lorem",
+      date: ["Nov 2023", "Date"],
+      head: "Conju.me — Contract",
+      body: "Product development process, from user experience processes, research, site-mapping, wire-frame design, and user journey, to the implementation",
     },
     {
-      date: ["2017", "2018"],
-      head: "Master Degree - University",
-      body: "lorem",
+      date: ["Jul 2022", "Aug 2023"],
+      head: "Jatado — Fulltime Remote",
+      body: "Product development process, from user experience processes, research, site-mapping, wire-frame design, and user journey, to the implementation",
     },
     {
-      date: ["2017", "2018"],
-      head: "Master Degree - University",
-      body: "lorem",
+      date: ["Apr 2022", "Jun 2022"],
+      head: "Magnusrise — Contract",
+      body: "Developed RESTFUL API using Laravel for business logic, User Authentication, User Dashboard, Admin Authentication and Admin Dashboard",
     },
   ];
   const projects = [
     {
-      head: "Master Degree - University",
-      body: "lorem",
+      date: ["Jan 2024", ""],
+      head: "Project Name — Language",
+      body: "A very short description about the project and its features Visit:https://projectname.example",
     },
     {
-      head: "Master Degree - University",
-      body: "lorem",
+      date: ["Oct 2023", ""],
+      head: "Project Name — Language",
+      body: "A very short description about the project and its features Visit:https://projectname.example",
     },
     {
-      head: "Master Degree - University",
-      body: "lorem",
+      date: ["May 2023", ""],
+      head: "Project Name — Language",
+      body: "A very short description about the project and its features Visit:https://projectname.example",
     },
   ];
   return (
@@ -76,14 +79,12 @@ export const ExperienceTab = ({ data }) => {
     <div className="experience-tab">
       <div className="experience-tab-date">
         {data.date && <i class="fa-solid fa-calendar-days"></i>}
-        {data.date ? `${data.date[0]} — ${data.date[1]}` : ""}
+        {data.date
+          ? `${data.date[0]} ${data.date[1] && "— " + data.date[1]}`
+          : ""}
       </div>
       <div className="experience-tab-title">{data.head}</div>
-      <div className="experience-tab-body">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia,
-        repellendus neque est quas eveniet, aut voluptatum soluta quisquam quam
-        alias ducimus sheiu.
-      </div>
+      <div className="experience-tab-body">{data.body}</div>
     </div>
   );
 };

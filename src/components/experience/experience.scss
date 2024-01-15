@@ -11,7 +11,7 @@
     min-height: 650px;
     align-items: center;
     justify-content: center;
-    padding: 50px 5vw 30px;
+    padding: 50px 5vw 80px;
     // text-align: var(--text-align);
 
     &.inView {
@@ -45,17 +45,23 @@
     height: 500px;
     display: grid;
     grid-template-rows: auto 1fr;
-    row-gap: 10px;
+    row-gap: 15px;
     position: relative;
 
     &:first-child {
+      overflow: hidden;
+      height: 100%;
       &::after {
         @include slideXAnimation(0.2s);
+        height: 110%;
       }
     }
     &:last-child {
+      overflow: hidden;
+      height: 100%;
       &::after {
         @include slideXAnimation(0.9s);
+        height: 110%;
       }
     }
 
@@ -97,7 +103,9 @@
     border: 2px solid var(--gold);
     border-radius: 6px;
     display: grid;
-    align-content: space-between;
+    grid-template-rows: 20px auto 1fr;
+    row-gap: 9px;
+    // align-content: space-between;
     font-weight: 300;
     padding: 10px;
 
@@ -117,11 +125,12 @@
     &-title {
       font-weight: 400;
       font-size: 18px;
+      color: #fff;
     }
     &-body {
       font-size: clamp(12px, 2.7vw, 14px);
       line-height: 1.4;
-      opacity: 0.85;
+      opacity: 0.9;
     }
     // height: 200px;
   }

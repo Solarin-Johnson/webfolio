@@ -1,7 +1,7 @@
 @import "../../layout/_mixins";
 
 :root {
-  --about-bg: #4c3012;
+  --about-bg: #32200c;
 }
 
 .about {
@@ -89,7 +89,7 @@
     }
   }
   &-content {
-    padding-top: 30px;
+    padding-top: 20px;
     width: clamp(120px, 85vw, 820px);
     font-size: clamp(14px, 2.5vw, 18px);
     font-weight: 300;
