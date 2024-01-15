@@ -59,10 +59,28 @@ export default function Navigation() {
 }
 
 export const MenuItems = ({ name, active, i, setActive }) => {
+  const pages = document.querySelectorAll(".App")[0];
+
+  const navigate = () => {
+    if (pages.children) {
+      const element = pages.children[i + 2].getBoundingClientRect();
+      window.scrollTo({
+        top:
+          i < 4
+            ? element.top + window.pageYOffset - i * 30
+            : document.body.scrollHeight - 800,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div
       className={`menu-items ${active === i && "menu-active"}`}
-      onClick={() => setActive(i)}
+      onClick={() => {
+        setActive(i);
+        navigate();
+      }}
     >
       {name}
     </div>
