@@ -11,8 +11,7 @@
   &-container {
     padding: calc(var(--nav-height) + 10px) 5vw;
     animation: move-alt alternate forwards;
-    animation-timeline: scroll(block nearest);
-
+    
     &.inView {
       --animation-name: slideX;
       --label-animation: blinks;
@@ -235,7 +234,7 @@
     right: clamp(5vw, 200px, 15vw);
     top: calc(77px + 5vw);
     animation: move alternate forwards;
-    animation-timeline: scroll(block);
+    animation-timeline: scroll(block) !important;
 
     &::after {
       @include slideXAnimation(1.2s);
