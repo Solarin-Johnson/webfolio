@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./skills.scss";
 import { useInView } from "react-intersection-observer";
 
-export default function Skills() {
+export default function Skills({ browserWidth }) {
   const [ref, inView] = useInView({
     threshold: 0.05,
     triggerOnce: false,
@@ -24,7 +24,7 @@ export default function Skills() {
   return (
     <div
       className={`experience-container skills-container ${
-        inView ? "inView" : ""
+        inView ? "inView" : browserWidth <= 600 ? "inView" : ""
       }`}
       ref={ref}
     >

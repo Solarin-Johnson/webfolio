@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import "./experience.scss";
 import { useInView } from "react-intersection-observer";
 
-export default function Experience() {
+export default function Experience({ browserWidth }) {
   const [ref, inView] = useInView({
     threshold: 0.25,
     triggerOnce: false,
@@ -42,7 +43,12 @@ export default function Experience() {
     },
   ];
   return (
-    <div className={`experience-container ${inView ? "inView" : ""}`} ref={ref}>
+    <div
+      className={`experience-container ${
+        inView ? "inView" : browserWidth <= 600 ? "inView" : ""
+      }`}
+      ref={ref}
+    >
       <div className="experience-head">
         My <span>Journey</span>
       </div>

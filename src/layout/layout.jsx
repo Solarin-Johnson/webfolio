@@ -4,10 +4,14 @@ import Experience from "../components/experience";
 import Home from "../components/home";
 import Skills from "../components/skills";
 
-export default function Layout() {
+export default function Layout({ browserWidth }) {
   return (
     <>
-      <Home /> <About /> <Experience /> <Skills /> <Contact />
+      <Home />
+      <About />
+      <Experience browserWidth={browserWidth} />
+      <Skills browserWidth={browserWidth} />
+      <Contact />
     </>
   );
 }

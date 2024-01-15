@@ -1,20 +1,10 @@
 import { useEffect, useState } from "react";
 import "./nav.scss";
 
-export default function Navigation() {
+export default function Navigation({ browserWidth }) {
   const menuItems = ["Home", "About", "Experience", "Skills", "Contact"];
   const [activeMenu, setActiveMenu] = useState(0);
-  const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
   const [menuState, setMenuState] = useState(false);
-  const handleWidth = window.innerWidth;
-
-  useEffect(() => {
-    window.addEventListener("resize", () => setBrowserWidth(window.innerWidth));
-    return () =>
-      window.removeEventListener("resize", () =>
-        setBrowserWidth(window.innerWidth)
-      );
-  }, []);
 
   console.log(activeMenu);
 
