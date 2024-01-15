@@ -65,21 +65,21 @@
           height: 0;
           background-color: var(--brown);
           position: absolute;
-          animation: menuEffect 0.65s linear forwards;
+          animation: menuEffect 0.4s linear forwards;
         }
       }
       &.hide-menu {
-        transition: 0.8s cubic-bezier(0.39, 0.575, 0.565, 1);
-        &::before {
-          top: var(--nav-height);
-          content: "";
-          width: 100vw;
-          height: 50px;
-          background-color: var(--brown);
-          position: absolute;
-          z-index: 1;
-          animation: menuEffect 0.65s linear 0.2s reverse;
-        }
+        transition: 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) !important;
+        // &::before {
+        //   top: var(--nav-height);
+        //   content: "";
+        //   width: 100vw;
+        //   height: 50px;
+        //   background-color: var(--brown);
+        //   position: absolute;
+        //   z-index: 1;
+        //   animation: menuEffect 0.65s linear 0.2s reverse;
+        // }
       }
     }
   }

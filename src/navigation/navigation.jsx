@@ -6,6 +6,7 @@ export default function Navigation() {
   const [activeMenu, setActiveMenu] = useState(0);
   const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
   const [menuState, setMenuState] = useState(false);
+  const handleWidth = window.innerWidth;
 
   useEffect(() => {
     window.addEventListener("resize", () => setBrowserWidth(window.innerWidth));
@@ -60,7 +61,7 @@ export default function Navigation() {
 }
 
 export const MenuItems = ({ name, active, i, setActive, browserWidth }) => {
-  const pages = document.querySelectorAll(".App")[0];
+  const pages = document.querySelectorAll(".container")[0];
 
   const navigate = () => {
     if (pages.children) {
