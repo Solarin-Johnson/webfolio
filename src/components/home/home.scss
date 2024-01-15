@@ -235,7 +235,7 @@
     right: clamp(5vw, 200px, 15vw);
     top: calc(77px + 5vw);
     animation: move alternate forwards;
-    animation-timeline: scroll(block nearest);
+    animation-timeline: scroll(block);
 
     &::after {
       @include slideXAnimation(1.2s);
