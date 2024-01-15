@@ -1,0 +1,99 @@
+@import "../../layout/_mixins";
+
+.contact {
+  &-container {
+    background-color: var(--bg-color);
+    display: grid;
+    align-content: center;
+    min-height: 400px;
+    justify-items: center !important;
+    padding: 50px 5vw;
+  }
+  &-head {
+    &::after {
+      background-color: var(--bg-color);
+    }
+    padding-bottom: 35px;
+    font-size: clamp(24px, 2vw, 32px) !important;
+  }
+  &-form {
+    display: grid;
+    width: clamp(0px, 90vw, 600px);
+    align-content: start;
+    row-gap: 15px;
+    #input {
+      position: relative;
+      &::after {
+        @include slideXAnimation(0.2s);
+      }
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(clamp(0px, 90vw, 250px), 1fr)
+      );
+      grid-gap: 15px;
+    }
+    #message {
+      position: relative;
+      display: grid;
+      &::after {
+        @include slideXAnimation(0.8s);
+      }
+    }
+    textarea {
+      background: transparent;
+      resize: vertical;
+      min-height: 140px;
+      max-height: 200px;
+      height: calc(30vw - 20px);
+    }
+    input,
+    textarea {
+      height: 30px;
+      background-color: transparent;
+      border: 2px solid #ff8103bc;
+      border-radius: 5px;
+      padding: 10px;
+      outline: none;
+      color: var(--text-color);
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      position: relative;
+      transition: 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+      &:focus {
+        background-color: #221d16c9 !important;
+      }
+      &::placeholder {
+        color: var(--text-color);
+      }
+    }
+  }
+  &-button {
+    margin-top: 25px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 45px;
+    background-color: var(--gold);
+    color: var(--bg-color);
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    font-size: 18px;
+    position: relative;
+
+    &::after {
+      @include slideXAnimation(1.1s);
+    }
+    &:hover {
+      width: clamp(180px, 40vw, 220px);
+    }
+    &:active {
+      width: 140px;
+    }
+  }
+}

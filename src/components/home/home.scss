@@ -330,10 +330,10 @@
   10% {
     opacity: 0;
   }
-  40% {
+  10% {
     transform: scale(5) translateY(calc(var(--nav-height) * 1.1));
   }
-  41% {
+  11% {
     transform: scale(0);
     z-index: -1 !important;
   }

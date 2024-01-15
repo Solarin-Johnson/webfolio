@@ -85,6 +85,7 @@ export const ExperienceTab = ({ data }) => {
       </div>
       <div className="experience-tab-title">{data.head}</div>
       <div className="experience-tab-body">{data.body}</div>
+      <span className="tab-animation"></span>
     </div>
   );
 };
