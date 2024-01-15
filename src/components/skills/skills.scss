@@ -28,22 +28,22 @@
       row-gap: 20px;
       &:first-child {
         &::after {
-          //   @include slideXAnimation(0.2s);
-          //   background-color: var(--about-bg);
-          //   height: 520px;
-          //   width: calc(100% + 40px);
-          //   top: -10px;
-          //   right: -15px;
+          @include slideXAnimation(0.2s);
+          background-color: var(--about-bg);
+          height: 520px;
+          width: calc(100% + 40px);
+          top: -10px;
+          right: -15px;
         }
       }
       &:last-child {
         &::after {
-          //   @include slideXAnimation(0.7s);
-          //   background-color: var(--about-bg);
-          //   height: 520px;
-          //   width: calc(100% + 40px);
-          //   top: -10px;
-          //   right: -15px;
+          @include slideXAnimation(0.7s);
+          background-color: var(--about-bg);
+          height: 520px;
+          width: calc(100% + 40px);
+          top: -10px;
+          right: -15px;
         }
       }
     }

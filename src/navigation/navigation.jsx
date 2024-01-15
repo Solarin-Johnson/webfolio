@@ -49,6 +49,7 @@ export default function Navigation() {
                 active={activeMenu}
                 i={i}
                 setActive={(index) => setActiveMenu(index)}
+                browserWidth={browserWidth}
               />
             );
           })}
@@ -58,15 +59,18 @@ export default function Navigation() {
   );
 }
 
-export const MenuItems = ({ name, active, i, setActive }) => {
+export const MenuItems = ({ name, active, i, setActive, browserWidth }) => {
   const pages = document.querySelectorAll(".App")[0];
 
   const navigate = () => {
     if (pages.children) {
-      const element = pages.children[i + 2].getBoundingClientRect();
+      const element =
+        pages.children[
+          browserWidth <= 600 ? 2 + i : 1 + i
+        ].getBoundingClientRect();
       element &&
         window.scrollTo({
-          top: element.top + window.pageYOffset - 100,
+          top: element.top + window.pageYOffset - 70,
           behavior: "smooth",
         });
     }

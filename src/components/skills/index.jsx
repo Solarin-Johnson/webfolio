@@ -18,7 +18,7 @@ export default function Skills() {
   const pro = [
     { name: "Web Design", rate: 65 },
     { name: "Backend Development", rate: 90 },
-    { name: "Data Analysis", rate: 70 },
+    { name: "Data Structures & Algorithm", rate: 70 },
     { name: "Version Control", rate: 80 },
   ];
   return (
@@ -32,8 +32,8 @@ export default function Skills() {
         My <span>Skills</span>
       </div>
       <div className="experience-window-container">
-        <SkillsWindow data={language} head={"coding skills"} />
-        <SkillsWindow data={pro} head={"professional skills"} />
+        <SkillsWindow data={inView && language} head={"coding skills"} />
+        <SkillsWindow data={inView && pro} head={"professional skills"} />
       </div>
     </div>
   );
@@ -44,9 +44,7 @@ export const SkillsWindow = ({ data, head }) => {
     <div className="skills-window-container">
       <div className="skills-window-head">{head}</div>
       <div className="skills-window">
-        {data.map((item, i) => (
-          <SkillTab data={item} />
-        ))}
+        {data && data.map((item, i) => <SkillTab data={item} />)}
       </div>
     </div>
   );
@@ -56,7 +54,7 @@ export const SkillTab = ({ data }) => {
   const [rate, setRate] = useState(0);
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const [ref, inView] = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
   useEffect(() => {
@@ -66,7 +64,6 @@ export const SkillTab = ({ data }) => {
         setRate(i);
       }
     };
-
     inView && updateRate();
   }, [data.rate, inView]);
 
