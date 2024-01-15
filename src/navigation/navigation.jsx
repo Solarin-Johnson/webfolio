@@ -64,13 +64,11 @@ export const MenuItems = ({ name, active, i, setActive }) => {
   const navigate = () => {
     if (pages.children) {
       const element = pages.children[i + 2].getBoundingClientRect();
-      window.scrollTo({
-        top:
-          i < 4
-            ? element.top + window.pageYOffset - i * 30
-            : document.body.scrollHeight - 800,
-        behavior: "smooth",
-      });
+      element &&
+        window.scrollTo({
+          top: element.top + window.pageYOffset - 100,
+          behavior: "smooth",
+        });
     }
   };
 
