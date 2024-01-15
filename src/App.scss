@@ -10,3 +10,7 @@ body {
   color: var(--text-color);
   -webkit-tap-highlight-color: #ffffff00;
 }
+
+.container {
+  display: grid;
+}

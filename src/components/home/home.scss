@@ -5,13 +5,18 @@
   --overlay-display: grid;
   --overlay-index: 100;
   --image-opacity: 1;
+  --image-right: clamp(5vw, 200px, 15vw);
 }
 
 .home {
   &-container {
     padding: calc(var(--nav-height) + 10px) 5vw;
     animation: move-alt alternate forwards;
-    
+    justify-self: center;
+    width: 90vw;
+    max-width: 1440px;
+    display: grid;
+
     &.inView {
       --animation-name: slideX;
       --label-animation: blinks;
@@ -231,8 +236,10 @@
     position: fixed;
     z-index: -1;
     opacity: var(--image-opacity);
-    right: clamp(5vw, 200px, 15vw);
+    right: var(--image-right);
     top: calc(77px + 5vw);
+    justify-self: end;
+    padding-right: 30px;
     animation: move alternate forwards;
     animation-timeline: scroll(block) !important;
 
@@ -258,11 +265,13 @@
   z-index: var(--overlay-index);
   width: clamp(280px, 65vw, 500px);
   height: clamp(200px, 70vw, 500px);
-  right: clamp(5vw, 200px, 10vw);
+  right: var(--image-right);
+  justify-self: end;
+  padding-right: 30px;
   top: calc(77px + 5vw);
   display: var(--overlay-display);
   background: radial-gradient(
-    circle at 40% 15%,
+    circle at 55% 15%,
     #1b1a1710,
     #1b1a1742,
     #1b1a17ad,
@@ -276,7 +285,7 @@
     height: 100%;
     position: absolute;
     background: radial-gradient(
-      circle at 40% 15%,
+      circle at 55% 15%,
       #1b1a1750,
       #1b1a17a0,
       #1b1a17b9,
@@ -379,5 +388,11 @@
     --overlay-display: none;
     --overlay-index: -1;
     --image-opacity: 0.15;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  :root {
+    --image-right: inherit;
   }
 }
