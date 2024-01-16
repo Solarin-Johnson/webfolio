@@ -12,7 +12,11 @@ export default function About() {
         About <span>Me</span>
       </div>
       <div className="about-image">
-        <img src={process.env.PUBLIC_URL + "/image.webp"} alt="" />
+        <img
+          fetchpriority="high"
+          src={process.env.PUBLIC_URL + "/image.webp"}
+          alt=""
+        />
       </div>
       <div className="about-title">Software Engineer!</div>
       <div className="about-content">
