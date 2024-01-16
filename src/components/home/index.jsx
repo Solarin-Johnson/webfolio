@@ -1,7 +1,7 @@
 import "./home.scss";
 import { useInView } from "react-intersection-observer";
 
-export default function Home() {
+export default function Home({browserWidth}) {
   const [ref, inView] = useInView({
     threshold: 0.45,
     triggerOnce: false,
@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </div>
       <div className="home-image">
-        <img src={process.env.PUBLIC_URL + "/image.png"} alt="" />
+        <img src={process.env.PUBLIC_URL + "/image.webp"} alt="" />
       </div>
       <div className="overlay"></div>
     </div>
