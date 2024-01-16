@@ -158,9 +158,13 @@
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: #ffffff00;
+    width: 30px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
     span {
       transition: 0.5s ease;
-      font-size: 28px;
+      font-size: 22px;
       &:active {
         transform: rotate(10deg);
       }

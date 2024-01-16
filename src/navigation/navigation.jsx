@@ -83,9 +83,7 @@ export const MenuItems = ({ name, active, i, setActive, browserWidth }) => {
 export const MenuBar = ({ setMenu, menu }) => {
   return (
     <div className="menu-bar" onClick={() => setMenu(!menu)}>
-      <span className="material-symbols-outlined">
-        {menu ? "close" : "menu"}
-      </span>
+      <span class={`fa-solid fa-${!menu ? "bars" : "close"}`}></span>
     </div>
   );
 };
