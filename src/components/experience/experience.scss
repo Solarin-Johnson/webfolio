@@ -113,11 +113,10 @@
 
     .tab-animation {
       position: absolute;
-      width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: 0;
       background: var(--brown);
-      opacity: 0.05;
+      opacity: 1;
       width: 0;
       transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     }
