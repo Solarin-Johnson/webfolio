@@ -23,6 +23,7 @@
     }
   }
   &-content {
+    z-index: calc(var(--overlay-index) + 100);
     max-width: 650px;
     display: grid;
     height: calc(100vh - 150px);
@@ -84,7 +85,7 @@
           background-color: var(--gold);
         }
         &:hover::before {
-          color: #ffffff;
+          color: var(--text-color);
         }
         &:hover::after {
           right: 0;
@@ -95,7 +96,7 @@
         &::before {
           content: "Let's Talk";
           width: 100%;
-          color: #ffffff;
+          color: var(--text-color);
         }
         &::after {
           left: 0;
@@ -184,7 +185,7 @@
       display: grid;
       padding-top: 10px;
       font-family: sans-serif;
-      font-size: clamp(18px, 2.5vw, 26px);
+      font-size: clamp(18px, 3.8vw, 26px);
       color: var(--bg-color);
       -webkit-text-stroke: 0.7px var(--gold);
       text-stroke: 0.7px var(--gold);

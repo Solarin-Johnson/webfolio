@@ -98,6 +98,7 @@
       display: grid;
       grid-template-rows: repeat(3, 1fr);
       row-gap: 20px;
+      z-index: 1;
     }
   }
   &-tab {
@@ -110,13 +111,14 @@
     font-weight: 300;
     padding: 10px;
     position: relative;
+    background-color: transparent;
 
     .tab-animation {
       position: absolute;
       height: 100%;
-      z-index: 0;
+      z-index: -1;
       background: var(--brown);
-      opacity: 1;
+      opacity: 0.1;
       width: 0;
       transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     }
