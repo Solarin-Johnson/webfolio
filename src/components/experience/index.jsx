@@ -27,19 +27,9 @@ export default function Experience({ browserWidth }) {
   ];
   const projects = [
     {
-      date: ["Jan 2024", ""],
-      head: "Project Name — Language",
-      body: "A very short description about the project and its features Visit:https://projectname.example",
-    },
-    {
-      date: ["Oct 2023", ""],
-      head: "Project Name — Language",
-      body: "A very short description about the project and its features Visit:https://projectname.example",
-    },
-    {
-      date: ["May 2023", ""],
-      head: "Project Name — Language",
-      body: "A very short description about the project and its features Visit:https://projectname.example",
+      date: ["Nov 2023", ""],
+      head: "Conju.me — Python - FastAPI",
+      body: "Conju.me is your ultimate platform for effortlessly sharing and monetizing everything you create online in one link. Visit:https://conju.me/",
     },
   ];
   return (
@@ -66,9 +56,9 @@ export const ExperienceWindow = ({ head, data }) => {
       <div className="experience-window-head">{head}</div>
       <div className="experience-window-content">
         <div className="experience-window-bar">
-          <span></span>
-          <span></span>
-          <span></span>
+          {data.map(() => (
+            <span></span>
+          ))}
         </div>
         <div className="experience-window-body">
           {data.map((item, i) => (

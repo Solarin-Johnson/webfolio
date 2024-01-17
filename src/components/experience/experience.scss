@@ -43,7 +43,6 @@
       grid-template-rows: var(--windows-rows);
       grid-template-columns: var(--windows-columns);
     }
-    height: 500px;
     display: grid;
     grid-template-rows: auto 1fr;
     row-gap: 15px;
@@ -96,9 +95,16 @@
     }
     &-body {
       display: grid;
-      grid-template-rows: repeat(3, 1fr);
-      row-gap: 20px;
+      grid-template-rows: repeat(3, auto);
+      // row-gap: 20px;
       z-index: 1;
+
+      > div {
+        margin-bottom: 30px;
+      }
+      > :last-child {
+        margin-bottom: 5px !important;
+      }
     }
   }
   &-tab {
@@ -112,6 +118,7 @@
     padding: 10px;
     position: relative;
     background-color: transparent;
+    max-height: 120px;
 
     .tab-animation {
       position: absolute;
