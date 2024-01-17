@@ -1,12 +1,14 @@
+@import "../../layout/_mixins";
+
 :root {
   --footer-columns: repeat(2, auto);
   --footer-rows: 1fr;
-  --fotter-bottom: auto;
+  --footer-bottom: 10px;
 }
 
 .footer {
   &-container {
-    padding: 10px 5vw;
+    padding: 15px 5vw;
     padding-bottom: var(--footer-bottom);
     background-color: var(--about-bg);
     display: grid;
@@ -18,20 +20,42 @@
     row-gap: 10px;
     grid-template-columns: var(--footer-columns);
     grid-template-rows: var(--footer-rows);
+
+    &.inView {
+      --animation-name: slideX;
+    }
+
+    > :last-child {
+      display: grid;
+      position: relative;
+
+      &::after {
+        @include slideXAnimation(0.8s);
+        animation-duration: 0.4s;
+        background-color: var(--about-bg);
+      }
+    }
   }
   &-copy {
     font-size: clamp(12px, 2.8vw, 18px);
+    position: relative;
+
+    &::after {
+      @include slideXAnimation(0.2s);
+      background-color: var(--about-bg);
+    }
   }
+
   &-btt {
     border: 2px solid var(--text-color);
     padding: 10px 15px;
     border-radius: 0.5rem;
     color: var(--text-color);
     cursor: pointer;
-    position: relative;
     z-index: 1;
     overflow: hidden;
     transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    position: relative;
 
     &::after {
       position: absolute;
@@ -64,6 +88,6 @@
   :root {
     --footer-rows: 40px auto;
     --footer-columns: 1fr;
-    --footer-bottom: 18px;
+    --footer-bottom: 23px;
   }
 }

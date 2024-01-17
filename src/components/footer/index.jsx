@@ -9,16 +9,18 @@ export default function Footer() {
   });
 
   return (
-    <div className="footer-container">
+    <div className={`footer-container ${inView ? "inView" : ""}`} ref={ref}>
       <p className="footer-copy">
         &copy; {currentYear} Solarin Daniel. All rights reserved. Designed and
         developed by Js
       </p>
-      <div
-        className="footer-btt"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
-        <i class="fa-solid fa-arrow-up"></i>
+      <div>
+        <div
+          className="footer-btt"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <i class="fa-solid fa-arrow-up"></i>
+        </div>
       </div>
     </div>
   );
