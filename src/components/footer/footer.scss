@@ -39,6 +39,8 @@
   &-copy {
     font-size: clamp(12px, 2.8vw, 18px);
     position: relative;
+    text-align: center;
+    line-height: 1.6;
 
     &::after {
       @include slideXAnimation(0.2s);
