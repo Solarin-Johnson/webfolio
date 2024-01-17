@@ -84,13 +84,6 @@
           left: 0;
           background-color: var(--gold);
         }
-        &:hover::before {
-          color: var(--text-color);
-        }
-        &:hover::after {
-          right: 0;
-          width: 0%;
-        }
       }
       :last-child {
         &::before {
@@ -101,13 +94,6 @@
         &::after {
           left: 0;
           width: 0;
-        }
-        &:hover::before {
-          color: var(--bg-color);
-        }
-        &:hover::after {
-          left: 0;
-          width: 100%;
         }
       }
     }
@@ -392,8 +378,31 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
   :root {
     --image-right: inherit;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .home-content-button {
+    :first-child {
+      &:hover::before {
+        color: var(--text-color);
+      }
+      &:hover::after {
+        right: 0;
+        width: 0%;
+      }
+    }
+    :last-child {
+      &:hover::before {
+        color: var(--bg-color);
+      }
+      &:hover::after {
+        left: 0;
+        width: 100%;
+      }
+    }
   }
 }

@@ -8,4 +8,9 @@
   right: 0;
   top: 0;
   z-index: 100;
+
+  @media (prefers-reduced-motion: reduced) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
 }
