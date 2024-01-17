@@ -15,10 +15,10 @@ export default function Home({ browserWidth }) {
         <div className="home-content-name">Hi, I'm Solarin Daniel</div>
         <div className="home-content-label">Software Engineer</div>
         <div className="home-content-text">
-          I'm a full-stack web developer, adept at blending frontend and backend
-          technologies to craft seamless and engaging web experiences. My skills
-          cover a diverse range of technologies, ensuring end-to-end solutions
-          in web development.
+          I'm a Skilled software engineer specializing in full-stack
+          development, seamlessly blending frontend and backend technologies to
+          create engaging and innovative web experiences. Let's collaborate and
+          build something amazing together!
         </div>
         <div className="home-content-button">
           <div></div>
